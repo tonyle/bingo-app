@@ -93,7 +93,9 @@ export async function POST(request: NextRequest) {
       {
         error: "Internal server error. Please try again later.",
         details:
-          process.env.NODE_ENV === "development" ? error.message : undefined,
+          process.env.NODE_ENV === "development" && error instanceof Error
+            ? error.message
+            : undefined,
       },
       { status: 500 }
     );
