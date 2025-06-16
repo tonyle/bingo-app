@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowLeft, Shield } from "lucide-react";
 import { db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
     fetchPrivacy();
   }, []);
   return (
-    <Suspense fallback={null}>
+    <>
       <div className="flex min-h-screen flex-col bg-gradient-to-b from-black via-gray-900 to-black text-white">
         {/* Animated background elements */}
         <div className="fixed inset-0 z-0">
@@ -108,6 +108,6 @@ export default function PrivacyPolicyPage() {
           </section>
         </main>
       </div>
-    </Suspense>
+    </>
   );
 }
