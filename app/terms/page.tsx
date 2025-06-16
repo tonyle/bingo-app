@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
@@ -8,6 +9,8 @@ import { db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 
 export default function TermsOfServicePage() {
+  const searchParams = useSearchParams();
+  const isMobile = searchParams.get("p") === "mobile";
   const [content, setContent] = useState("");
   useEffect(() => {
     const fetchTerms = async () => {
@@ -33,33 +36,36 @@ export default function TermsOfServicePage() {
           style={{ animationDelay: "1s" }}
         ></div>
       </div>
-
-      <header className="sticky top-0 z-40 w-full backdrop-blur-lg bg-black/50 border-b border-white/10">
-        <div className="container flex h-16 items-center space-x-4">
-          <Link href="/" className="flex gap-2 items-center text-xl font-bold">
-            <div className="relative">
-              <div className="w-6 h-6 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-xs font-bold">
-                B
-              </div>
-            </div>
-            <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-              Bingo Lotto
-            </span>
-          </Link>
-          <div className="flex-1" />
-          <Link href="/">
-            <Button
-              variant="outline"
-              size="sm"
-              className="gap-2 border-purple-500/50 text-white hover:bg-purple-500/10"
+      {!isMobile && (
+        <header className="sticky top-0 z-40 w-full backdrop-blur-lg bg-black/50 border-b border-white/10">
+          <div className="container flex h-16 items-center space-x-4">
+            <Link
+              href="/"
+              className="flex gap-2 items-center text-xl font-bold"
             >
-              <ArrowLeft className="h-4 w-4" />
-              Back to Home
-            </Button>
-          </Link>
-        </div>
-      </header>
-
+              <div className="relative">
+                <div className="w-6 h-6 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-xs font-bold">
+                  B
+                </div>
+              </div>
+              <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+                Bingo Lotto
+              </span>
+            </Link>
+            <div className="flex-1" />
+            <Link href="/">
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-2 border-purple-500/50 text-white hover:bg-purple-500/10"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Back to Home
+              </Button>
+            </Link>
+          </div>
+        </header>
+      )}
       <main className="flex-1 relative z-10">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
@@ -87,15 +93,16 @@ export default function TermsOfServicePage() {
                 className="space-y-8"
                 dangerouslySetInnerHTML={{ __html: content }}
               />
-
-              <div className="text-center mt-12">
-                <Link href="/">
-                  <Button className="gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg shadow-purple-500/25">
-                    <ArrowLeft className="h-4 w-4" />
-                    Back to Bingo Lotto
-                  </Button>
-                </Link>
-              </div>
+              {!isMobile && (
+                <div className="text-center mt-12">
+                  <Link href="/">
+                    <Button className="gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg shadow-purple-500/25">
+                      <ArrowLeft className="h-4 w-4" />
+                      Back to Bingo Lotto
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </section>
