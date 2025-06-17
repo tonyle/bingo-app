@@ -72,6 +72,14 @@ export default function LandingPage() {
       setIsSubmitting(false);
     }
   };
+
+  const handleScroll = () => {
+    const section = document.getElementById('download');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <div className="flex min-h-screen flex-col bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
@@ -96,11 +104,16 @@ export default function LandingPage() {
             >
               <div className="relative">
                 <div className="w-6 h-6 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-xs font-bold">
-                  B
+                      <Image
+                      src="/logo.png?height=32&width=32"
+                      width={32}
+                      height={32}
+                      alt="Loto"
+                    />
                 </div>
               </div>
               <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-                Bingo Offline
+                Loto
               </span>
             </Link>
             <div className="flex flex-1 items-center justify-end space-x-4">
@@ -129,13 +142,16 @@ export default function LandingPage() {
                 >
                   Contact
                 </Link>
+
                 <Button
                   size="sm"
                   className="gap-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg shadow-purple-500/25"
+                  onClick={handleScroll}
                 >
                   <Download className="h-4 w-4" />
                   Download Free
                 </Button>
+
               </nav>
             </div>
           </div>
@@ -143,21 +159,21 @@ export default function LandingPage() {
 
         <main className="flex-1 relative z-10">
           <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative overflow-hidden">
-            <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center opacity-20"></div>
+
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80"></div>
             <div className="container px-4 md:px-6 relative">
               <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
                 <div className="flex flex-col justify-center space-y-4 animate-fadeIn">
                   <div className="space-y-2">
                     <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-gradient-to-r from-white via-purple-300 to-pink-300 bg-clip-text text-transparent animate-gradient">
-                      Play Bingo Offline with Friends - No Paper Needed!
+                      Play Loto Offline with Friends - No Paper Needed!
                     </h1>
                     <p
                       className="max-w-[600px] text-gray-300 md:text-xl animate-fadeIn"
                       style={{ animationDelay: "0.2s" }}
                     >
-                      The perfect digital Bingo companion for family gatherings,
-                      parties, and group events. Play classic Bingo games
+                      The perfect digital Loto companion for family gatherings,
+                      parties, and group events. Play classic Loto games
                       without the hassle of paper cards - completely offline!
                     </p>
                   </div>
@@ -165,13 +181,15 @@ export default function LandingPage() {
                     className="flex flex-col gap-2 min-[400px]:flex-row animate-fadeIn"
                     style={{ animationDelay: "0.4s" }}
                   >
-                    <Button
-                      size="lg"
-                      className="gap-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg shadow-purple-500/25 transform hover:scale-105"
-                    >
-                      <Download className="h-5 w-5" />
-                      Download Free
-                    </Button>
+                    <Link href="#download">
+                      <Button
+                        size="lg"
+                        className="gap-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg shadow-purple-500/25 transform hover:scale-105"
+                      >
+                        <Download className="h-5 w-5" />
+                        Download Free
+                      </Button>
+                    </Link>
                     <Link href="#gameplay">
                       <Button
                         size="lg"
@@ -201,14 +219,14 @@ export default function LandingPage() {
                     style={{ animationDelay: "0.8s" }}
                   >
                     <Link
-                      href="#"
+                      href="https://apps.apple.com/app/id6746702948"
                       className="flex items-center gap-2 transition-all duration-300 hover:text-purple-400"
                     >
                       <Apple className="h-6 w-6" />
                       <span className="text-sm">App Store</span>
                     </Link>
                     <Link
-                      href="#"
+                      href="https://play.google.com/store/apps/details?id=dev.evan.loto"
                       className="flex items-center gap-2 transition-all duration-300 hover:text-purple-400"
                     >
                       <ShoppingBag className="h-6 w-6" />
@@ -219,10 +237,10 @@ export default function LandingPage() {
                 <div className="flex items-center justify-center animate-float">
                   <div className="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm md:aspect-square lg:order-last lg:aspect-video shadow-2xl shadow-purple-500/20">
                     <Image
-                      src="/placeholder.svg?height=720&width=1280"
+                      src="/5.png?height=720&width=1280"
                       width={1280}
                       height={720}
-                      alt="Bingo Offline game screenshot"
+                      alt="Loto Offline game screenshot"
                       className="object-cover transition-transform duration-700 hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
@@ -253,10 +271,10 @@ export default function LandingPage() {
                     App Features
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-white via-purple-300 to-pink-300 bg-clip-text text-transparent">
-                    Perfect for Group Bingo Games
+                    Perfect for Group Loto Games
                   </h2>
                   <p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Everything you need to host fun Bingo games with family and
+                    Everything you need to host fun Loto games with family and
                     friends, completely offline and paperless.
                   </p>
                 </div>
@@ -302,7 +320,7 @@ export default function LandingPage() {
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold">No Paper Needed</h3>
                     <p className="text-gray-400">
-                      Digital Bingo cards on your phone or tablet - eco-friendly
+                      Digital Loto cards on your phone or tablet - eco-friendly
                       and convenient.
                     </p>
                   </div>
@@ -328,7 +346,7 @@ export default function LandingPage() {
                       Simple Setup for Group Fun
                     </h2>
                     <p className="max-w-[600px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                      Get your group Bingo game started in minutes with our
+                      Get your group Loto game started in minutes with our
                       easy-to-use offline app.
                     </p>
                   </div>
@@ -344,7 +362,7 @@ export default function LandingPage() {
                         <h3 className="font-medium">Download & Setup</h3>
                         <p className="text-sm text-gray-400">
                           Each player downloads the app and creates their
-                          digital Bingo cards.
+                          digital Loto cards.
                         </p>
                       </div>
                     </div>
@@ -386,10 +404,10 @@ export default function LandingPage() {
                     style={{ animationDelay: "0.1s" }}
                   >
                     <Image
-                      src="/placeholder.svg?height=400&width=300"
+                      src="/1.png?height=400&width=300"
                       width={300}
                       height={400}
-                      alt="Digital Bingo card"
+                      alt="Digital Loto card"
                       className="aspect-[3/4] object-cover transition-transform duration-700 hover:scale-110"
                     />
                   </div>
@@ -398,7 +416,7 @@ export default function LandingPage() {
                     style={{ animationDelay: "0.3s" }}
                   >
                     <Image
-                      src="/placeholder.svg?height=400&width=300"
+                      src="/2.png?height=400&width=300"
                       width={300}
                       height={400}
                       alt="Number calling interface"
@@ -410,7 +428,7 @@ export default function LandingPage() {
                     style={{ animationDelay: "0.5s" }}
                   >
                     <Image
-                      src="/placeholder.svg?height=400&width=300"
+                      src="/3.png?height=400&width=300"
                       width={300}
                       height={400}
                       alt="Group playing together"
@@ -422,7 +440,7 @@ export default function LandingPage() {
                     style={{ animationDelay: "0.7s" }}
                   >
                     <Image
-                      src="/placeholder.svg?height=400&width=300"
+                      src="/4.png?height=400&width=300"
                       width={300}
                       height={400}
                       alt="Winning celebration"
@@ -451,7 +469,7 @@ export default function LandingPage() {
                   </h2>
                   <p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     Join thousands of families who have made their gatherings
-                    more fun with Bingo Offline.
+                    more fun with Loto Offline.
                   </p>
                 </div>
               </div>
@@ -590,64 +608,58 @@ export default function LandingPage() {
             </div>
           </section>
 
-          <section className="w-full py-12 md:py-24 lg:py-32 relative overflow-hidden">
+          <section
+            id="download"
+            className="w-full py-12 md:py-24 lg:py-32 relative overflow-hidden">
+
             <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-purple-900/20"></div>
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
             <div className="container px-4 md:px-6 relative">
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2 animate-fadeIn">
                   <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-white via-purple-300 to-pink-300 bg-clip-text text-transparent">
-                    Ready for Paperless Bingo Fun?
+                    Ready for Paperless Loto Fun?
                   </h2>
                   <p className="max-w-[600px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Download Bingo Offline now and bring digital convenience to
+                    Download Loto Offline now and bring digital convenience to
                     your next group gathering!
                   </p>
-                </div>
-                <div
-                  className="flex flex-col gap-2 min-[400px]:flex-row animate-fadeIn"
-                  style={{ animationDelay: "0.2s" }}
-                >
-                  <Button
-                    size="lg"
-                    className="gap-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg shadow-purple-500/25 transform hover:scale-105"
-                  >
-                    <Download className="h-5 w-5" />
-                    Download Free
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="gap-1 border-purple-500/50 text-white hover:bg-purple-500/10 transition-all duration-300 transform hover:scale-105"
-                  >
-                    <Clock className="h-5 w-5" />
-                    Watch Demo
-                  </Button>
                 </div>
                 <div
                   className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 animate-fadeIn"
                   style={{ animationDelay: "0.4s" }}
                 >
-                  <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-black/30 backdrop-blur-sm px-4 py-2 transition-all duration-300 hover:border-purple-500/30 hover:shadow-purple-500/10 hover:shadow-lg">
-                    <Apple className="h-6 w-6 text-purple-400" />
-                    <div className="flex flex-col">
-                      <span className="text-xs text-gray-400">
-                        Download on the
-                      </span>
-                      <span className="text-sm font-medium">App Store</span>
+                  <Link
+                    href="https://apps.apple.com/app/id6746702948"
+                  >
+                    <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-black/30 backdrop-blur-sm px-4 py-2 transition-all duration-300 hover:border-purple-500/30 hover:shadow-purple-500/10 hover:shadow-lg">
+                      <Apple className="h-6 w-6 text-purple-400" />
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-400">
+                          Download on the
+                        </span>
+                        <span className="text-sm font-medium">App Store</span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-black/30 backdrop-blur-sm px-4 py-2 transition-all duration-300 hover:border-purple-500/30 hover:shadow-purple-500/10 hover:shadow-lg">
-                    <ShoppingBag className="h-6 w-6 text-purple-400" />
-                    <div className="flex flex-col">
-                      <span className="text-xs text-gray-400">GET IT ON</span>
-                      <span className="text-sm font-medium">Google Play</span>
+
+                  </Link>
+
+                  <Link href="https://play.google.com/store/apps/details?id=dev.evan.loto">
+                    <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-black/30 backdrop-blur-sm px-4 py-2 transition-all duration-300 hover:border-purple-500/30 hover:shadow-purple-500/10 hover:shadow-lg">
+                      <ShoppingBag className="h-6 w-6 text-purple-400" />
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-400">GET IT ON</span>
+                        <span className="text-sm font-medium">Google Play</span>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
           </section>
+
+
+
         </main>
         <section
           id="contact"
@@ -666,7 +678,7 @@ export default function LandingPage() {
                 </h2>
                 <p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Need help with the app or have suggestions? We're here to make
-                  your Bingo experience even better!
+                  your Loto experience even better!
                 </p>
               </div>
             </div>
@@ -750,7 +762,7 @@ export default function LandingPage() {
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      placeholder="Tell us how we can help improve your Bingo experience..."
+                      placeholder="Tell us how we can help improve your Loto experience..."
                       rows={5}
                       required
                       className="w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-white placeholder:text-gray-400 focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-colors duration-200"
@@ -783,34 +795,6 @@ export default function LandingPage() {
 
               {/* Contact Information */}
               <div className="space-y-6">
-                <div
-                  className="rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm p-6 shadow-xl shadow-purple-500/5 animate-fadeIn"
-                  style={{ animationDelay: "0.3s" }}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/30">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-6 w-6"
-                      >
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                      </svg>
-                    </div>
-                    <div className="space-y-1">
-                      <h3 className="font-medium text-white">App Support</h3>
-                      <p className="text-gray-400">+1 (641) 819-1944</p>
-                      <p className="text-gray-400">Mon-Fri: 9AM - 5PM PST</p>
-                    </div>
-                  </div>
-                </div>
 
                 <div
                   className="rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm p-6 shadow-xl shadow-purple-500/5 animate-fadeIn"
@@ -836,37 +820,7 @@ export default function LandingPage() {
                     </div>
                     <div className="space-y-1">
                       <h3 className="font-medium text-white">Email Support</h3>
-                      <p className="text-gray-400">support@bingo.com</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  className="rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm p-6 shadow-xl shadow-purple-500/5 animate-fadeIn"
-                  style={{ animationDelay: "0.5s" }}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/30">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-6 w-6"
-                      >
-                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                      </svg>
-                    </div>
-                    <div className="space-y-1">
-                      <h3 className="font-medium text-white">Office</h3>
-                      <p className="text-gray-400">3820 Spring Valley Road</p>
-                      <p className="text-gray-400">Addison, TX 75001</p>
+                      <p className="text-gray-400">phanes.dev@gmail.com</p>
                     </div>
                   </div>
                 </div>
@@ -985,11 +939,11 @@ export default function LandingPage() {
                 </div>
               </div>
               <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-                Bingo Offline
+                Loto
               </span>
             </div>
             <p className="text-center text-sm text-gray-400 md:text-left">
-              &copy; {new Date().getFullYear()} Bingo Offline. All rights
+              &copy; {new Date().getFullYear()} Phanes Team. All rights
               reserved.
             </p>
             <div className="flex gap-4">
